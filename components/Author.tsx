@@ -13,7 +13,6 @@ const Author = ({ author }: Props) => {
         <Image
           src={author.image.url}
           alt={author.name}
-          unoptimized
           height="100px"
           width="100px"
           className="align-middle rounded-full"

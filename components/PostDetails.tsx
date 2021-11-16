@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { RichText } from "@graphcms/rich-text-react-renderer";
 
 import { PostType } from "../types";
@@ -47,6 +48,15 @@ const PostDetails = ({ post }: Props) => {
               ),
               h6: ({ children }) => (
                 <h2 className="text-sm font-semibold">{children}</h2>
+              ),
+              img: ({ src, altText, width, height, title }) => (
+                <Image
+                  src={src}
+                  width={width}
+                  height={height}
+                  title={title}
+                  alt={altText}
+                />
               ),
               code: ({ children }) => (
                 <code className="text-gray-800 bg-gray-100 whitespace-normal p-1 border-gray-200 border rounded-md">
