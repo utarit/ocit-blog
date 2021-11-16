@@ -114,8 +114,8 @@ const CommentsForm = ({ slug }: Props) => {
           Gönder
         </button>
         {showSuccessMessage && (
-          <span className="text-xl float-right font-semibold mt-3 text-green-500">
-            Mesajınız gönderildi.
+          <span className="text-lg float-right font-semibold mt-3 text-green-500">
+            Mesajınızı incelemeye aldık.
           </span>
         )}
       </div>
