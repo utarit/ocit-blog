@@ -14,7 +14,7 @@ const AuthorDate = ({ author, createdAt, isDetails = false }: Props) => {
         isDetails ? "lg:justify-start" : "lg:justify-center px-6"
       } mb-8 w-full`}
     >
-      <div className="flex items-center justify-center mb-4 lg:mb-0 lg:w-auto mr-8">
+      <div className="flex items-center justify-center lg:mb-0 lg:w-auto mr-8">
         <img
           src={author.image.url}
           alt={author.name}

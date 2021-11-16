@@ -17,7 +17,7 @@ interface Props {
 // Photo by Dimitri Iakymuk on Unsplash
 export default function Home({ posts, featuredPosts }: Props) {
   return (
-    <div className="container mx-auto px-10 mb-8">
+    <div className="container mx-auto px-8 mb-8">
       <Head>
         <title>OCİT Blog</title>
         <link rel="icon" href="/favicon.ico" />
