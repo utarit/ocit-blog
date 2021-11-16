@@ -5,23 +5,24 @@ import PostCard from "../components/PostCard";
 import RelatedPosts from "../components/RelatedPosts";
 import Categories from "../components/Categories";
 
-import { getPosts } from "../services";
+import { getFeaturedPosts, getPosts } from "../services";
 import { PostType } from "../types";
 import FeaturedPosts from "../sections/FeaturedPosts";
 
 interface Props {
   posts: { node: PostType }[];
+  featuredPosts: PostType[];
 }
 
 // Photo by Dimitri Iakymuk on Unsplash
-export default function Home({ posts }: Props) {
+export default function Home({ posts, featuredPosts }: Props) {
   return (
     <div className="container mx-auto px-10 mb-8">
       <Head>
         <title>OCİT Blog</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <FeaturedPosts />
+      <FeaturedPosts posts={featuredPosts} />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="col-span-1 lg:col-span-8">
           {posts.map((post) => (
@@ -41,9 +42,11 @@ export default function Home({ posts }: Props) {
 
 export async function getStaticProps() {
   const posts = (await getPosts()) || [];
+  const featuredPosts = (await getFeaturedPosts()) || [];
   return {
     props: {
       posts,
+      featuredPosts,
     },
   };
 }

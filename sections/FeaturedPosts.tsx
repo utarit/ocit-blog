@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 import FeaturedPostCard from "../components/FeaturedPostCard";
-import { getFeaturedPosts } from "../services";
 import { PostType } from "../types";
 
 const responsive = {
@@ -25,17 +24,10 @@ const responsive = {
   },
 };
 
-const FeaturedPosts = () => {
-  const [featuredPosts, setFeaturedPosts] = useState<PostType[]>([]);
-  const [dataLoaded, setDataLoaded] = useState(false);
-
-  useEffect(() => {
-    getFeaturedPosts().then((result) => {
-      setFeaturedPosts(result);
-      setDataLoaded(true);
-    });
-  }, []);
-
+interface Props {
+  posts: PostType[];
+}
+const FeaturedPosts = ({ posts }: Props) => {
   const customLeftArrow = (
     <div className="absolute arrow-btn left-0 text-center py-3 cursor-pointer bg-pink-600 rounded-full">
       <svg
@@ -83,10 +75,9 @@ const FeaturedPosts = () => {
         responsive={responsive}
         itemClass="px-4"
       >
-        {dataLoaded &&
-          featuredPosts.map((post, index) => (
-            <FeaturedPostCard key={index} post={post} />
-          ))}
+        {posts.map((post, index) => (
+          <FeaturedPostCard key={index} post={post} />
+        ))}
       </Carousel>
     </div>
   );
