@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import { GetStaticProps } from "next";
 
 import PostCard from "../components/PostCard";
 import RelatedPosts from "../components/RelatedPosts";
@@ -40,7 +41,7 @@ export default function Home({ posts, featuredPosts }: Props) {
   );
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const posts = (await getPosts()) || [];
   const featuredPosts = (await getFeaturedPosts()) || [];
   return {
@@ -48,5 +49,6 @@ export async function getStaticProps() {
       posts,
       featuredPosts,
     },
+    revalidate: 600,
   };
-}
+};
