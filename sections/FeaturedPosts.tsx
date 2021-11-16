@@ -4,6 +4,7 @@ import "react-multi-carousel/lib/styles.css";
 
 import FeaturedPostCard from "../components/FeaturedPostCard";
 import { getFeaturedPosts } from "../services";
+import { PostType } from "../types";
 
 const responsive = {
   superLargeDesktop: {
@@ -25,7 +26,7 @@ const responsive = {
 };
 
 const FeaturedPosts = () => {
-  const [featuredPosts, setFeaturedPosts] = useState([]);
+  const [featuredPosts, setFeaturedPosts] = useState<PostType[]>([]);
   const [dataLoaded, setDataLoaded] = useState(false);
 
   useEffect(() => {

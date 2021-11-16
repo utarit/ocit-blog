@@ -5,8 +5,12 @@ import { getCategories, getCategoryPost } from "../../services";
 import PostCard from "../../components/PostCard";
 import Categories from "../../components/Categories";
 import Loader from "../../components/Loader";
+import { PostType } from "../../types";
 
-const CategoryPost = ({ posts }) => {
+interface Props {
+  posts: { node: PostType }[];
+}
+const CategoryPost = ({ posts }: Props) => {
   const router = useRouter();
 
   if (router.isFallback) {

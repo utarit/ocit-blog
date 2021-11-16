@@ -1,7 +1,10 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { submitComment } from "../services";
 
-const CommentsForm = ({ slug }) => {
+interface Props {
+  slug: string;
+}
+const CommentsForm = ({ slug }: Props) => {
   const [error, setError] = useState(false);
   // const [localStorage, setLocalStorage] = useState(null);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
@@ -44,7 +47,7 @@ const CommentsForm = ({ slug }) => {
       window.localStorage.removeItem("email");
     }
 
-    submitComment(commentObj).then((result) => {
+    submitComment(commentObj).then(() => {
       setShowSuccessMessage(true);
       setTimeout(() => {
         setShowSuccessMessage(false);
