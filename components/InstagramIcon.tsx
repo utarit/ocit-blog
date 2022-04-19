@@ -2,7 +2,7 @@ import React from 'react'
 
 export const InstagramIcon = () => {
   return (
-    <a className='cursor-pointer hover:scale-125 transition duration-700' href='https://www.instagram.com/o.c.i.t/'>
+    <a target="_blank" rel="noreferrer" className='cursor-pointer hover:scale-125 transition duration-700' href='https://www.instagram.com/o.c.i.t/'>
       <svg
         height={24}
         width={24}
