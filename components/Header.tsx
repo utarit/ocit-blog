@@ -7,10 +7,6 @@ const CATEGORIES = [
     name: "Biz Kimiz?",
     slug: "ocit",
   },
-  {
-    name: "İlk Yardım",
-    slug: "ilkyardim",
-  },
 ];
 
 const Header = () => {
