@@ -5,6 +5,8 @@ import { GetStaticProps } from "next";
 import PostCard from "../components/PostCard";
 import RelatedPosts from "../components/RelatedPosts";
 import Categories from "../components/Categories";
+import Officials from "../components/Officials";
+
 
 import { getFeaturedPosts, getPosts } from "../services";
 import { PostType } from "../types";
@@ -34,6 +36,7 @@ export default function Home({ posts, featuredPosts }: Props) {
           <div className="relative top-8 lg:sticky">
             <RelatedPosts />
             <Categories />
+            <Officials />
           </div>
         </div>
       </div>
